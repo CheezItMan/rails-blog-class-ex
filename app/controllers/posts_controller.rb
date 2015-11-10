@@ -7,4 +7,9 @@ class PostsController < ApplicationController
     id = params[:id]
     @post = Post.find(id)
   end
+
+  def edit
+    redirect_to "http://google.com/"
+    #render :edit_form
+  end
 end
