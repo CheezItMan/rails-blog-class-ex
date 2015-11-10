@@ -1,8 +1,10 @@
 class PostsController < ApplicationController
   def index
-    @posts = ["hello", "whatsup", "its noon", "goodbye"]
+    @posts = Post.all
   end
 
   def show
+    id = params[:id]
+    @post = Post.find(id)
   end
 end
