@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   def index
+    @favorite = current_user[:favorite_post]
     @posts = Post.all
   end
 
