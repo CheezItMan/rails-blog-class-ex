@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     @favorite = current_user[:favorite_post]
-    @posts = Post.all
+    @posts = Post.by_author("Charles")
   end
 
   def show
