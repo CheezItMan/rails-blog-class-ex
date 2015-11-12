@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   def index
-    @favorite = current_user[:favorite_post]
-    @posts = Post.by_author("Charles")
+    # @favorite = current_user[:favorite_post]
+    # @posts = Post.by_author("Charles")
+    @posts = Post.all
   end
 
   def show
@@ -12,5 +13,23 @@ class PostsController < ApplicationController
   def edit
     redirect_to "http://google.com/"
     #render :edit_form
+  end
+
+  def new
+    @post = Post.new
+  end
+
+  def create
+    Post.create(post_params[:post])
+
+    # p = Post.new(param[:post])
+    # p.save
+    redirect_to "/"
+  end
+
+  private
+
+  def post_params
+    params.permit(post:[:title, :author_name])
   end
 end

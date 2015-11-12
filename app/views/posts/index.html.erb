@@ -3,9 +3,6 @@
   <% @posts.each do |post| %>
   <li><%= post.title %>: <%= post.author_name %>
     (<%= post.created_at %>)
-    <% if @favorite == post.id %>
-    YOUR FAVORITE
-    <% end %>
   </li>
   <% end %>
 </ul>
