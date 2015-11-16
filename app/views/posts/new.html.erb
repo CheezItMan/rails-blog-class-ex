@@ -4,8 +4,9 @@
     <%= f.label :title %>
     <%= f.text_field :title %>
     <br>
-    <%= f.label :author_name %>
-    <%= f.text_field :author_name %>
+    <%= f.label :writer_id, "Writer" %>
+    <%= f.collection_select(:writer_id, Writer.all, :id, :name,
+      prompt: "Select the Writer:") %>
   </fieldset>
   <%= f.submit %>
 <% end %>

@@ -30,6 +30,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.permit(post:[:title, :author_name])
+    params.permit(post:[:title, :writer_id])
   end
 end

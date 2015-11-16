@@ -11,14 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151110171934) do
+ActiveRecord::Schema.define(version: 20151116182310) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.datetime "publish_date"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.string   "author_name"
+    t.integer  "writer_id"
+  end
+
+  add_index "posts", ["writer_id"], name: "index_posts_on_writer_id"
+
+  create_table "writers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "bio"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
