@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+seed_posts = [
+  {title: "hello", publish_date: Time.now },
+  {title: "goodbye", publish_date: Time.now },
+  {title: "news", publish_date: Time.now },
+  {title: "news2", publish_date: Time.now },
+  {title: "updates", publish_date: Time.now }
+]
+
+seed_posts.each do |seed|
+  Post.create(seed)
+end
