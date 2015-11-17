@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
   root 'posts#index'
 
-  resources :posts
-  get 'posts/most_recent' => 'posts#most_recent', as: :latest
+  resources :writers do
+    resources :posts do
+      collection do
+        # Routes for ALL posts
+        get 'most_recent', as: :latest
+      end
+    end
+  end
+
 
 
 
