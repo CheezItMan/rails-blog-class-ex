@@ -27,6 +27,11 @@ class PostsController < ApplicationController
     redirect_to "/"
   end
 
+  def most_recent
+    @post = Post.most_recent
+    render :show
+  end
+
   private
 
   def post_params
