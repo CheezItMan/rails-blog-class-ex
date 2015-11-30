@@ -20,11 +20,17 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(post_params[:post])
+    # Post.create(post_params[:post])
 
-    # p = Post.new(param[:post])
-    # p.save
-    redirect_to "/"
+    @post = Post.new(post_params[:post])
+    if @post.save
+      redirect_to "/"
+    else
+      render "new"
+      # redirect_to new_post_path
+      # The above will take you to a brand new
+      # form and won't save the info or errors
+    end
   end
 
   def most_recent

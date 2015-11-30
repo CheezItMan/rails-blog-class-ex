@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'posts#index'
+  
   resources :posts do
     collection do
       # Routes for ALL posts
@@ -7,7 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :writers do    
+  resources :writers do
   end
 
 

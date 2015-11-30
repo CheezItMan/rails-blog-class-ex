@@ -1,6 +1,8 @@
 class Post < ActiveRecord::Base
   belongs_to :writer
 
+  validates :title, presence: true
+
   def self.published
     return Post.where("publish_date < ?", Time.now)
   end
@@ -15,10 +17,4 @@ class Post < ActiveRecord::Base
       p.publish_date
     end
   end
-
-
-
-
-
-
 end
