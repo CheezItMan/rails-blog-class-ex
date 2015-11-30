@@ -1,5 +1,7 @@
 <h1>HELLO, WE ARE RAILSING!</h1>
 <%= link_to "Check out the most recent post!", latest_posts_path %>
+<br>
+<%= link_to "New Post!", new_post_path %>
 <ul>
   <% @posts.each do |post| %>
   <li><%= post.title %>:
