@@ -1,7 +1,14 @@
-<h1>HELLO, WE ARE RAILSING!</h1>
+<h3>HELLO <%= @user_name %>, WE ARE RAILSING!</h3>
 <%= link_to "Check out the most recent post!", latest_posts_path %>
 <br>
 <%= link_to "New Post!", new_post_path %>
+<br>
+<%= link_to "New User!", new_user_path %>
+<br>
+<%= link_to "Login!", new_session_path %>
+<br>
+<%= link_to "Logout!", logout_path, method: :delete %>
+<br>
 <table class="table table-condensed table-hover">
   <thead>
     <tr>
