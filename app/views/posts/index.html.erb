@@ -2,14 +2,27 @@
 <%= link_to "Check out the most recent post!", latest_posts_path %>
 <br>
 <%= link_to "New Post!", new_post_path %>
-<ul>
+<table class="table table-condensed table-hover">
+  <thead>
+    <tr>
+      <td>Post Title</td>
+      <td>Post Writer</td>
+      <td>Post Creation Date</td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
   <% @posts.each do |post| %>
-  <li><%= post.title %>:
+  <tr>
+  <td><%= post.title %></td>
+  <td>
     <% if !post.writer.nil? %>
       <%= post.writer.name %>
     <% end %>
-    (<%= post.created_at %>)
-    <%= link_to "View Post", post_path(post) %>
-  </li>
+  </td>
+  <td><%= post.created_at %></td>
+  <td><%= link_to "View Post", post_path(post) %></td>
+  </tr>
   <% end %>
-</ul>
+  </tbody>
+</table>
