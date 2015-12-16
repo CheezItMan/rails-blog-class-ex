@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'posts#index'
-  
+
   resources :posts do
     collection do
       # Routes for ALL posts
@@ -11,8 +11,10 @@ Rails.application.routes.draw do
   resources :writers do
   end
 
+  resources :users, :only => [:new, :create]
+  resources :sessions, :only => [:new, :create]
 
-
+  delete "/logout", to: "sessions#destroy", as: :logout
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

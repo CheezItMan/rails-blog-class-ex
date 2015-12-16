@@ -3,6 +3,14 @@ class PostsController < ApplicationController
     # @favorite = current_user[:favorite_post]
     # @posts = Post.by_author("Charles")
     @posts = Post.all
+    user_id = session[:user_id]
+    if user_id.nil?
+      # not logged in
+      @user_name = "guest"
+    else
+      # logged in
+      @user_name = User.find(user_id).first_name
+    end
   end
 
   def show
