@@ -31,5 +31,9 @@ module RailsBlog
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Setup our deployment environment (development or production)
+    # Assume this is production to avoid unintentional information leaks
+    config.site_env = ENV['SITE_ENV'] || Rails.env
   end
 end
