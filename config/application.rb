@@ -39,6 +39,7 @@ module RailsBlog
     # Use better_errors if this is a development deploy
     if config.site_env == 'development'
       (ENV['TRUSTED_IPS'] || '').split.each do |ip|
+        WebConsole::Request.whitelisted_ips.instance_variable_get(:@networks).push(ip)
         BetterErrors::Middleware.allow_ip! ip
       end
     end
