@@ -35,5 +35,12 @@ module RailsBlog
     # Setup our deployment environment (development or production)
     # Assume this is production to avoid unintentional information leaks
     config.site_env = ENV['SITE_ENV'] || Rails.env
+
+    # Use better_errors if this is a development deploy
+    if config.site_env == 'development'
+      (ENV['TRUSTED_IPS'] || '').split.each do |ip|
+        BetterErrors::Middleware.allow_ip! ip
+      end
+    end
   end
 end
